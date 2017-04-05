@@ -1,0 +1,38 @@
+@namespace ( "com.asnworks.meditrack.model" )
+protocol MediTrackProtocol {
+		
+	record Hospital {
+		int id;
+		string type;
+		string name;
+		string city;
+		string state;
+		string phoneNumber;
+		string email;		
+	}	
+	
+	record Patient {
+		int id;
+		string firstName;
+		string lastName;
+		int age;
+		string gender;
+		string address;
+		string phoneNumber;
+		string email;
+	
+	}
+	
+	record Doctor {
+	 int id;
+	 string medicalRegistrationNumber;
+	 string firstName;
+	 string lastName;
+	 string gender;
+	 string specialisation;
+	 string address;
+	 string phoneNumber;
+	 string email;
+	
+	}
+}
