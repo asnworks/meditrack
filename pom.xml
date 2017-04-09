@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.asnworks.meditrack</groupId>
@@ -17,11 +16,28 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<avro.version>1.8.1</avro.version>
+		<hadoop.version>2.5.0-cdh5.2.1</hadoop.version>
+		<guava.version>19.0</guava.version>		
 	</properties>
+	
+	<repositories>
+		
+		<repository>
+			<id>maven-hadoop</id>
+			<name>Hadoop Releases</name>
+			<url>https://repository.cloudera.com/content/repositories/releases/</url>
+		</repository>
+		<repository>
+			<id>hadoop-3rdparties</id>
+			<name>Hadoop Thirdparties</name>
+			<url>https://repository.cloudera.com/content/repositories/third-party/</url>
+		</repository>
+	</repositories>
 
 	<modules>
 		<module>model</module>
-	</modules>
+    <module>duct</module>
+  </modules>
 	
 	<dependencyManagement>
 		<dependencies>

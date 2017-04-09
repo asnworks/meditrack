@@ -9,21 +9,64 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>model</artifactId>
+	<artifactId>duct</artifactId>
 
-	<name>model</name>
+	<name>duct</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 	</properties>
-
-
 	<dependencies>
+
 		<dependency>
-			<groupId>org.apache.avro</groupId>
-			<artifactId>avro</artifactId>
-			<version>${avro.version}</version>
+			<groupId>com.asnworks.meditrack</groupId>
+			<artifactId>model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>${hadoop.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-core</artifactId>
+			<version>${hadoop.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>${hadoop.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.kohsuke.args4j</groupId>
+			<artifactId>args4j-maven-plugin</artifactId>
+			<version>2.0.22</version>
+		</dependency>
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -33,27 +76,8 @@
 		</dependency>
 	</dependencies>
 
-
 	<build>
 		<plugins>
-			<plugin><!-- Used to generate sources from .AVDL file -->
-				<groupId>org.apache.avro</groupId>
-				<artifactId>avro-maven-plugin</artifactId>
-				<version>${avro.version}</version>
-				<executions>
-					<execution>
-						<id>generate-avro-sources</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>idl-protocol</goal>
-						</goals>
-						<configuration>
-							<sourceDirectory>src/main/resources/avro</sourceDirectory>
-							<outputDirectory>src/main/java</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -64,7 +88,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.6</version>
@@ -153,7 +176,6 @@
 						<includes>
 							<include>com.asnworks.meditrack:*</include>
 						</includes>
-
 					</configuration>
 				</plugin>
 			</plugins>
